@@ -43,6 +43,8 @@ model = LogisticRegression(class_weight="balanced", max_iter=1000)
 model.fit(features, target)
 
 # -------- SIDEBAR UI INPUT --------
+
+
 st.sidebar.markdown(
     """
     <div style="display: flex; align-items: center;">
@@ -128,9 +130,7 @@ with tab2:
     st.plotly_chart(fig_age, use_container_width=True)
 # TAB 3 — VISUAL DASHBOARD
 with tab3:
-    st.markdown("##Advanced LinkedIn Usage Demographic Explorer")
-
-    st.write("Interact with demographics to uncover usage insights and patterns.")
+st.write("Interact with demographics to uncover usage insights and patterns.")
 
     compare_feature = st.selectbox(
         "Select Demographic to Compare",
