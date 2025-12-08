@@ -42,26 +42,26 @@ target = df["sm_li"]
 model = LogisticRegression(class_weight="balanced", max_iter=1000)
 model.fit(features, target)
 
+# -------- SIDEBAR UI INPUT --------
 st.sidebar.markdown(
     """
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
-         width="40" style="margin-bottom:-10px;">
-    """, 
+    <div style="display: flex; align-items: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="32" style="margin-right:10px;"/>
+        <h2 style="margin:0; padding:0; font-weight:700; color:#0e76a8;">User Profile</h2>
+    </div>
+    """,
     unsafe_allow_html=True
+
 )
 
-st.sidebar.title("User Profile Selection")
-
-# -------- SIDEBAR UI INPUT --------
-
-income_label = st.sidebar.selectbox("Household Income", list(income_labels.values()))
+income_label = st.sidebar.selectbox("Income", list(income_labels.values()))
 education_label = st.sidebar.selectbox("Education Completed", list(education_labels.values()))
 parent_label = st.sidebar.selectbox("Parent (Child under 18)", ["Yes", "No"])
 married_label = st.sidebar.selectbox("Marital Status", ["No", "Married"])
-gender = st.sidebar.radio("Gender", ["Male", "Female"])
+gender = st.sidebar.radio(" Gender", ["Male", "Female"])
 age = st.sidebar.slider("Age", 18, 98, 30)
 
-predict_button = st.sidebar.button("🔍 Predict LinkedIn Usage", use_container_width=True)
+predict_button = st.sidebar.button("Predict", use_container_width=True)
 
 # Convert labels to numeric values
 income = [k for k,v in income_labels.items() if v == income_label][0]
@@ -71,7 +71,7 @@ married_num = 1 if married_label == "Married" else 0
 gender_num = 1 if gender == "Female" else 0
 
 # -------- MAIN TITLE --------
-st.markdown("<h1 style='text-align:center;'> LinkedIn Usage Prediction Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center;'>LinkedIn Usage Prediction Dashboard</h1>", unsafe_allow_html=True)
 st.write("")
 
 # -------- TABS --------
@@ -79,7 +79,7 @@ tab1, tab2, tab3 = st.tabs(["Prediction", "Probability Curve", "Comparison Dashb
 
 # TAB 1 — PREDICTION + 3D VISUALIZATION
 with tab1:
-    st.subheader("🧠 LinkedIn Usage Prediction")
+    st.subheader("LinkedIn Usage Prediction")
 
     if predict_button:
         user_input = np.array([[income, education, married_num, parent_num, gender_num, age]])
@@ -123,9 +123,9 @@ with tab2:
                       labels={"x":"Age","y":"Probability"},
                       title="Probability of Using LinkedIn as Age Increases")
     st.plotly_chart(fig_age, use_container_width=True)
-
+# TAB 3 — VISUAL DASHBOARD
 with tab3:
-    st.markdown("## 📊 Advanced LinkedIn Usage Demographic Explorer")
+    st.markdown("##Advanced LinkedIn Usage Demographic Explorer")
 
     st.write("Interact with demographics to uncover usage insights and patterns.")
 
@@ -178,7 +178,7 @@ with tab3:
     st.plotly_chart(fig2, use_container_width=True)
 
     # Persona Generator
-    st.markdown("### 🧠 Persona Insight Generator")
+    st.markdown("### Persona Insight Generator")
     selected_group = st.selectbox("Select a Group:", df_group[x_col].tolist())
 
     persona = ""
