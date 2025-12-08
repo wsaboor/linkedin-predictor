@@ -130,7 +130,7 @@ with tab2:
     st.plotly_chart(fig_age, use_container_width=True)
 # TAB 3 — VISUAL DASHBOARD
 with tab3:
-st.write("Interact with demographics to uncover usage insights and patterns.")
+    st.write("Interact with demographics to uncover usage insights and patterns.")
 
     compare_feature = st.selectbox(
         "Select Demographic to Compare",
