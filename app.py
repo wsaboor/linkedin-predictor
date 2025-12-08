@@ -48,11 +48,14 @@ st.sidebar.markdown(
     <div style="display: flex; align-items: center;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="32" style="margin-right:10px;"/>
         <h2 style="margin:0; padding:0; font-weight:700; color:#0e76a8;">User Profile</h2>
+        
     </div>
+    
     """,
     unsafe_allow_html=True
 
 )
+
 
 income_label = st.sidebar.selectbox("Income", list(income_labels.values()))
 education_label = st.sidebar.selectbox("Education Completed", list(education_labels.values()))
