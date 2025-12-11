@@ -39,7 +39,6 @@ A structured audit log documenting:
   --error-report "error.csv"
 
 **Parameters**
-Parameter	Description: 
   - --input	Path to raw .xlsx or .csv EGRA dataset
   - --output	Destination path for cleaned dataset
   - --error-report	Destination path for error log
