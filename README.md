@@ -1,4 +1,4 @@
-**EGRA Data Transformation Pipeline – README Overview**
+**EGRA Data Transformation Pipeline**
 
 This module implements a transparent, reproducible data-cleaning pipeline for EGRA (Early Grade Reading Assessment) data collected via SurveyCTO. It standardizes key fields, flags inconsistencies, and produces decision-ready data for analysis while keeping a clear audit trail of all corrections.
 
