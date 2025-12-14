@@ -29,28 +29,24 @@ A structured audit log that records:
 
 **What the Script Does**
 The pipeline applies a sequence of transparent cleaning steps:
-- ID validation – Required for each record; missing IDs removed
+- ID validation – Student IDs are required for each record; missing IDs are removed
 - Date parsing – Multiple input formats accepted; weekend dates flagged
 - Time validation – Ensures start_time precedes end_time
 - Assent normalization – Converts to yes or no
 - Age validation – Ensures plausible range (8–14)
 - Schooling checks – Standardizes grade fields and flags contradictions
 - Score validation – Ensures LSID/ORF scores fall within expected bounds
-*All issues are logged, but only critical structural failures result in row removal.*
+*All issues are logged; only critical structural failures result in record removal.*
 
 **Using the Pipeline on New Datasets**
+As long as a new dataset follows the same schema (13 variables), the pipeline can be run without modification and will automatically produce both cleaned data and an error report.
 Just run:
 - python transform_egra.py --input "new_data.xlsx"
-*As long as the dataset follows the same schema (13 variables), the pipeline will clean it automatically and produce both outputs.*
 
 **Limitations**
 - No statistical imputation
 - No machine-learning-based corrections
-- Leaves ambiguous cases to analyst judgment (but logs them clearly)
+- Ambiguous cases are preserved and clearly logged for analyst judgment
   
 **Summary**
-This pipeline balances rigour, simplicity, and traceability and prioritizes:
-  - Clean, reliable datasets
-  - Transparent handling of all issues
-  - Reproducible processes
-  - Field-ready feedback loops
+This pipeline balances rigor, simplicity, and traceability. It prioritizes clean, reliable datasets, transparent handling of data quality issues, and feedback loops that support continuous improvement in data collection.
