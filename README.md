@@ -14,7 +14,7 @@ python transform_egra.py \
 A standardized dataset where:
 - Invalid or inconsistent values are corrected or set to missing
 - Impossible records (e.g., missing or non-numeric IDs) are excluded
-- Dates are converted to YYYY-MM-DD
+- Dates are converted to DD/MM/YYYY
 - All variables are coerced to expected ranges and formats
 - Logical contradictions (e.g., no previous schooling + completed Grade 3) are resolved
 
